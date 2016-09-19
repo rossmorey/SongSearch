@@ -1,0 +1,71 @@
+
+
+Title Only
+ASCAP: https://mobile.ascap.com/aceclient/AceWeb/#ace/search/title/River%20Of%20Dreams
+BMI:
+SESAC:
+
+Artist Only
+ASCAP: https://mobile.ascap.com/aceclient/AceWeb/#ace/search/performer/Billy%20Joel
+BMI:
+http://repertoire.bmi.com/artistSearch.asp?queryType=ArtistName&keyname=Adele&fromrow=1&torow=25
+SESAC:
+
+Writer Only
+ASCAP: https://mobile.ascap.com/aceclient/AceWeb/#ace/search/writer/Billy%20Joel
+BMI:
+SESAC:
+
+Publisher Only
+ASCAP: https://mobile.ascap.com/aceclient/AceWeb/#ace/search/publisher/Impulsive%20Music
+BMI:
+SESAC:
+
+ID Only
+ASCAP: https://mobile.ascap.com/aceclient/AceWeb/#ace/search/workID/881765970
+BMI:
+SESAC:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ASCAP
+https://mobile.ascap.com/aceclient/AceWeb/#ace/search/
+
+Performer
+Title
+Writer
+Publisher
+Work ID
+ISWC
+
+BMI
+http://www.bmi.com/search
+
+Artist
+Publisher
+Songwriter/Composer
+Title
+BMI Work #
+
+Sesac
+https://www.sesac.com/Repertory/RepertorySearch.aspx?x=83&y=10
+
+<!-- document.querySelector('form[action="SongSearch.aspx"]').submit() -->
+
+Song
+Writer
+Publisher
+Artist
+SESAC Work Number
