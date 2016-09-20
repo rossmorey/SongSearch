@@ -1,3 +1,58 @@
+ASCAP
+base: https://mobile.ascap.com/aceclient/AceWeb/#ace/search
+
+First, if available? This is only search term.
+work_id: /workID/313761230
+(iswc: /iswc/T9020171204)
+
+Then, title first:
+title: /title/August%20Moon (title first)
+
+Followed by, any 1-2:
+performer: /performer/Sara%20Bareilles
+writer: /writer/Sara%20Bareilles
+publisher: /publisher/Tiny%20Bear%20Music
+
+BMI
+
+ROLLING IN THE DEEP
+ADKINS ADELE LAURIE BLUE
+EMI BLACKWOOD MUSIC INC
+ADELE
+11550555
+
+base:
+ID
+
+then
+
+Title + all remainingTerms
+
+then
+
+then 1 of what's left
+performer (custom link)
+composer (custom link)
+publisher (custom link)
+
+Artist Only
+http://repertoire.bmi.com/artistSearch.asp?blnWriter=True&blnPublisher=True&blnArtist=True&blnAltTitles=True&queryType=ArtistName&page=1&keyname=adele&keyid=0&fromrow=1&torow=25
+
+Title Only
+http://repertoire.bmi.com/TitleSearch.asp?querytype=WorkName&page=1&fromrow=1&torow=25&keyname=Rolling%20In%20The%20Deep&blnWriter=True&blnPublisher=True&blnArtist=False&blnAltTitles=False
+http://repertoire.bmi.com/TitleSearch.asp?querytype=WorkName&page=1&fromrow=1&torow=25&keyname=Rolling%20In%20The%20Deep&blnWriter=True&blnPublisher=True&blnArtist=True&blnAltTitles=False
+Publisher only
+http://repertoire.bmi.com/pubSearch.asp?blnWriter=True&blnPublisher=True&blnArtist=True&blnAltTitles=True&queryType=PubName&page=1&keyname=EMI%20BLACKWOOD%20MUSIC%20INC&keyid=0&fromrow=1&torow=25
+
+Writer only
+http://repertoire.bmi.com/writer.asp?page=1&blnWriter=True&blnPublisher=True&blnArtist=True&fromrow=1&torow=25&affiliation=PRS&cae=544476240&keyID=1143988&keyname=ADKINS+ADELE+LAURIE+BLUE&querytype=WriterID
+
+ID only
+http://repertoire.bmi.com/Title.asp?blnWriter=true&blnPublisher=true&blnArtist=true&keyid=10132593&querytype=WorkID
+                                    Show writer    Show publisher    Show artist    ID#            queryType
+
+
+
 
 
 Title Only
