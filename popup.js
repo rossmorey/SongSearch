@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
               document.querySelectorAll('option[selected]')[0].removeAttribute('selected');
               document.querySelectorAll('option[value="` + search.type + `"]')[0].setAttribute('selected', '');
               document.querySelector(".main-search").value ="` + lastNameFirst(search.query, search.type) + `";
-
+              document.querySelector('#Form1').submit();
             `, runAt: "document_end"
             });
           });
