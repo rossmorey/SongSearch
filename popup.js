@@ -1,4 +1,4 @@
-const otherOrgs = ['bmi', 'sesac'];
+const otherOrgs = ['sesac', 'bmi'];
 const bmi = "http://repertoire.bmi.com/startpage.asp";
 const sesac = "https://www.sesac.com/Repertory/RepertorySearch.aspx";
 
@@ -54,12 +54,14 @@ document.addEventListener('DOMContentLoaded', function() {
       if (e.target[org].checked) {
         if (org === "bmi") {
           chrome.tabs.create({url: stringToObj[org]}, function(tab1) {
+            console.log(tab1.status);
             chrome.tabs.executeScript(tab1.id, {code: `
               document.querySelectorAll('option[selected]')[0].removeAttribute('selected');
               document.querySelectorAll('option[value="` + search.type + `"]')[0].setAttribute('selected', '');
               document.querySelector(".main-search").value ="` + lastNameFirst(search.query, search.type) + `";
-              document.querySelector('#Form1').submit();
-            `});
+
+            `, runAt: "document_end"
+            });
           });
         } else if (org === "sesac") {
           chrome.tabs.create({url: stringToObj[org]}, function(tab2) {
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
               document.querySelector('form[name="CatalogSearchForm"]').action="` + sesacFormActions[search.type] + `"
               document.querySelector('#SearchString').value="` + search.query + `";
               document.querySelector('form[name="CatalogSearchForm"]').submit();
-            `});
+            `, runAt: "document_end"});
           });
         }
       }
@@ -80,6 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// document.querySelector('#Form1').submit();
 
 function lastNameFirst(query, type) {
   if (type === "writer") {

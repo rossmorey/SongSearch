@@ -13,7 +13,7 @@
 
   "permissions": [
     "http://repertoire.bmi.com/*",
-    "https://www.sesac.com/Repertory/*",
+    "https://www.sesac.com/*",
     "tabs"
   ]
 }
