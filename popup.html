@@ -9,7 +9,7 @@
   <body>
     <header class="title">Song Search</header>
     <div>
-      Query ASCAP, BMI, and SESAC at the same time.
+      Query ASCAP, BMI, and SESAC:
     </div>
     <form class="search-form">
       <select name="select">
@@ -21,7 +21,9 @@
         <option value="titleid">Catalog ID</option>
         <option value="workiswc">ISWC</option>
       </select>
+      <div class="emptySelect"></div>
       <input type="text" name="query" />
+      <div class="emptyQuery"></div>
       <label><input type="checkbox" name="ascap" value="ascap" checked>ASCAP</label>
       <label><input type="checkbox" name="bmi" value="bmi" checked>BMI</label>
       <label><input type="checkbox" name="sesac" value="sesac" checked>SESAC</label>

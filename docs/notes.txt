@@ -1,3 +1,11 @@
+artist
+writer
+title
+titleid
+publisher
+workiswc
+
+
 "content_scripts": [
   { "run_at" :"document_end",
     "matches": ["http://repertoire.bmi.com/startpage.asp"],

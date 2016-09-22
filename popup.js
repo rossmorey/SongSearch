@@ -32,6 +32,7 @@ const stringToObj = {
   "sesac" : sesac
 };
 
+
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('select').addEventListener('change', function(e) {
     let iswcOption = e.target.children[6];
@@ -45,45 +46,76 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   document.querySelector('form').addEventListener('submit', function(e){
+    e.preventDefault();
+
     let search = {};
 
     search["type"] = e.target.select.value;
     search["query"] = e.target.query.value;
 
-    otherOrgs.forEach((org) => {
-      if (e.target[org].checked) {
-        if (org === "bmi") {
-          chrome.tabs.create({url: stringToObj[org]}, function(tab1) {
-            console.log(tab1.status);
-            chrome.tabs.executeScript(tab1.id, {code: `
-              document.querySelectorAll('option[selected]')[0].removeAttribute('selected');
-              document.querySelectorAll('option[value="` + search.type + `"]')[0].setAttribute('selected', '');
-              document.querySelector(".main-search").value ="` + lastNameFirst(search.query, search.type) + `";
-              document.querySelector('#Form1').submit();
-            `, runAt: "document_end"
-            });
-          });
-        } else if (org === "sesac") {
-          chrome.tabs.create({url: stringToObj[org]}, function(tab2) {
-            chrome.tabs.executeScript(tab2.id, {code: `
-              document.querySelector('input[value="` + sesacFormLabels[search.type] + `"]').checked = "checked";
-              document.querySelector('form[name="CatalogSearchForm"]').action="` + sesacFormActions[search.type] + `"
-              document.querySelector('#SearchString').value="` + search.query + `";
-              document.querySelector('form[name="CatalogSearchForm"]').submit();
-            `, runAt: "document_end"});
-          });
-        }
-      }
+    let errorConditions = {
+      "emptySelect" : () => (search.type === ""),
+      "emptyQuery" : () => (search.query === "")
+    };
+
+    let errorMessages = {
+      "emptySelect" : "Search type must be selected.",
+      "emptyQuery" : "Search field can't be empty."
+    };
+
+    let errors = false;
+
+    ["emptySelect", "emptyQuery"].forEach((condition) => {
+      let element = document.querySelector(`.${condition}`);
+      if (errorConditions[condition]()) {
+        element.innerHTML = errorMessages[condition];
+        errors = true;
+      } else {
+        element.innerHTML = "";
+      }  
     });
 
+    if (errors) return;
+
+    var active = true;
+
     if (e.target.ascap.checked) {
+      let activeAscap = active;
+      active = false;
+
       let address = ascap[search.type] + subSpaces(search.query);
-      chrome.tabs.create({url: address});
+
+      chrome.tabs.create({url: address, active: activeAscap});
+    }
+
+    if (e.target.bmi.checked) {
+      let activeBmi = active;
+      active = false;
+      chrome.tabs.create({url: bmi, active: activeBmi}, function(tab1) {
+        chrome.tabs.executeScript(tab1.id, {code: `
+          document.querySelectorAll('option[selected]')[0].removeAttribute('selected');
+          document.querySelectorAll('option[value="` + search.type + `"]')[0].setAttribute('selected', '');
+          document.querySelector(".main-search").value ="` + lastNameFirst(search.query, search.type) + `";
+          document.querySelector('#Form1').submit();
+        `, runAt: "document_end"});
+      });
+    }
+
+    if (e.target.sesac.checked) {
+      let activeSesac = active;
+      active = false;
+      chrome.tabs.create({url: sesac, active: activeSesac}, function(tab2) {
+        chrome.tabs.executeScript(tab2.id, {code: `
+          document.querySelector('input[value="` + sesacFormLabels[search.type] + `"]').checked = "checked";
+          document.querySelector('form[name="CatalogSearchForm"]').action="` + sesacFormActions[search.type] + `"
+          document.querySelector('#SearchString').value="` + search.query + `";
+          document.querySelector('form[name="CatalogSearchForm"]').submit();
+          `, runAt: "document_end"
+        });
+      });
     }
   });
 });
-
-// document.querySelector('#Form1').submit();
 
 function lastNameFirst(query, type) {
   if (type === "writer") {
