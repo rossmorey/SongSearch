@@ -3,13 +3,13 @@
 
   "name": "Song Search",
   "description": "Search ASCAP, BMI, and SESAC for song information.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "icons": { "16": "icon16.png",
-           "64": "icon64.png",
+           "48": "icon48.png",
           "128": "icon128.png" },
 
   "browser_action": {
-    "default_icon": "icon64.png",
+    "default_icon": "icon128.png",
     "default_popup": "popup.html",
     "default_title": "Song Search!"
   },
@@ -17,5 +17,7 @@
   "permissions": [
     "http://repertoire.bmi.com/*",
     "https://www.sesac.com/*"
-  ]
+  ],
+
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
 }
