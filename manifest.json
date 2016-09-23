@@ -4,9 +4,12 @@
   "name": "Song Search",
   "description": "This extension searches ASCAP, BMI, and SESAC for song composition information.",
   "version": "1.0",
+  "icons": { "16": "icon16.png",
+           "64": "icon64.png",
+          "128": "icon128.png" },
 
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "icon64.png",
     "default_popup": "popup.html",
     "default_title": "Song Search!"
   },

@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         errors = true;
       } else {
         element.innerHTML = "";
-      }  
+      }
     });
 
     if (errors) return;

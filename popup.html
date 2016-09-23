@@ -5,29 +5,32 @@
     <title>Song Search Popup</title>
     <link rel="stylesheet" href="./style.css">
     <script src="popup.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
   </head>
   <body>
-    <header class="title">Song Search</header>
-    <div>
-      Query ASCAP, BMI, and SESAC:
+    <div class="main-image">
+      <header class="title">Song Search</header>
+      <div class="subtitle">Query ASCAP, BMI, and SESAC:</div>
+      <form class="search-form" autocomplete="off">
+        <select name="select">
+          <option value="" disabled selected>How would you like to search?</option>
+          <option value="title">Title</option>
+          <option value="artist">Artist</option>
+          <option value="writer">Writer</option>
+          <option value="publisher">Publisher</option>
+          <option value="titleid">Catalog ID</option>
+          <option value="workiswc">ISWC</option>
+        </select>
+        <div class="emptySelect"></div>
+        <input type="text" name="query" />
+        <div class="emptyQuery"></div>
+        <div class="checkboxes">
+          <label><input type="checkbox" name="ascap" value="ascap" checked>ASCAP</label>
+          <label><input type="checkbox" name="bmi" value="bmi" checked>BMI</label>
+          <label><input type="checkbox" name="sesac" value="sesac" checked>SESAC</label>
+        </div>
+        <input class="submit-button" type="submit" value="Search">
+      </form>
     </div>
-    <form class="search-form">
-      <select name="select">
-        <option value="" disabled selected>How would you like to search?</option>
-        <option value="title">Title</option>
-        <option value="artist">Artist</option>
-        <option value="writer">Writer</option>
-        <option value="publisher">Publisher</option>
-        <option value="titleid">Catalog ID</option>
-        <option value="workiswc">ISWC</option>
-      </select>
-      <div class="emptySelect"></div>
-      <input type="text" name="query" />
-      <div class="emptyQuery"></div>
-      <label><input type="checkbox" name="ascap" value="ascap" checked>ASCAP</label>
-      <label><input type="checkbox" name="bmi" value="bmi" checked>BMI</label>
-      <label><input type="checkbox" name="sesac" value="sesac" checked>SESAC</label>
-      <input type="submit" value="Search">
-    </form>
   </body>
 </html>

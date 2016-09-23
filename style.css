@@ -1,0 +1,139 @@
+body, form, select, option, label, div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  box-sizing: inherit;
+  font-size: 14px;
+}
+
+body {
+  background: #FFF;
+  color: #dedede;
+  width: 300px;
+  padding: 5px;
+  font-family: Helvetica Neue;
+  /* background: black; */
+}
+
+.title {
+  font-size: 45px;
+  margin-bottom: 5px;
+  font-weight: 200;
+  /* font-family: 'Bungee Outline', cursive; */
+  font-family: 'Unica One', cursive;
+  text-align: center;
+}
+
+.checkboxes {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+input[type="text"] {
+  width: 96%;
+  margin: 15px 0px 3px 0px;
+  height: 20px;
+  border-radius: 5px;
+  border-style: none;
+  border: 1px solid #cacaca;
+  font-size: 14px;
+  padding: 5px;
+}
+
+input.submit-button {
+  width: 120px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #FFF;
+  color: #FFF;
+  font-size: 22px;
+  cursor: pointer;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  display: block;
+  margin-top: 15px;
+  background: #000;
+  font-family: 'Unica One';
+}
+
+input.submit-button:hover {
+  border: 1px solid #929292;
+  /* background: #ececec; */
+  background: none;
+  color: #FFF;
+  font-weight: 400;
+  border: white 2px solid;
+}
+
+
+select {
+  width: 100%;
+  border: 1px solid #c7c7c7;
+  height: 32px;
+  background: #FFF;
+  padding: 6px;
+  box-sizing: border-box;
+  margin-bottom: 3px;
+}
+
+.subtitle {
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.emptyQuery {
+  margin-bottom: 10px;
+  color: #bc7777;
+  text-align: center;
+}
+
+.emptySelect {
+  text-align: center;
+  color: #bc7777;
+}
+
+.greyed-out {
+  color: #FFF;
+}
+
+
+input.submit-button:focus {
+  outline: none;
+}
+
+input[type="text"]:focus {outline: none;}
+
+select {
+  outline: none;
+  cursor: pointer;
+}
+
+label {
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+input[type="text"]:hover {
+  border: 1px solid #929292;
+}
+
+.main {
+}
+
+.main-shade {
+  background: #000000;
+}
+
+.main-image {
+  padding: 20px;
+  background-image: url(http://res.cloudinary.com/dhorsi7vf/image/upload/v1474590981/background2_mjg6ua.png);
+  background-position-y: 100%;
+  background-repeat: repeat-x;
+  background-color: black;
