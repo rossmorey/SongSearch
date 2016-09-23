@@ -1,7 +1,5 @@
-const otherOrgs = ['sesac', 'bmi'];
 const bmi = "http://repertoire.bmi.com/startpage.asp";
 const sesac = "https://www.sesac.com/Repertory/RepertorySearch.aspx";
-
 const ascap = {
   title : "https://mobile.ascap.com/aceclient/AceWeb/#ace/search/title/",
   artist : "https://mobile.ascap.com/aceclient/AceWeb/#ace/search/performer/",
@@ -27,19 +25,14 @@ const sesacFormLabels = {
   titleid : "SESAC Work Number",
 };
 
-const stringToObj = {
-  "bmi" : bmi,
-  "sesac" : sesac
-};
-
-
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('select').addEventListener('change', function(e) {
     let iswcOption = e.target.children[6];
     let sesacBox = document.querySelector('input[value="sesac"]');
+
     if (iswcOption.selected) {
       sesacBox.checked = false;
-      sesacBox.setAttribute("disabled", "disabled");
+      sesacBox.setAttribute("disabled", "");
     } else {
       sesacBox.removeAttribute("disabled");
     }
@@ -48,11 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('form').addEventListener('submit', function(e){
     e.preventDefault();
 
+    //Capture user input in search object
     let search = {};
-
     search["type"] = e.target.select.value;
     search["query"] = e.target.query.value;
 
+    //User input error handling
     let errorConditions = {
       "emptySelect" : () => (search.type === ""),
       "emptyQuery" : () => (search.query === "")
@@ -77,21 +71,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (errors) return;
 
+
+    //Tab launching
     var active = true;
 
     if (e.target.ascap.checked) {
-      let activeAscap = active;
-      active = false;
-
       let address = ascap[search.type] + subSpaces(search.query);
-
-      chrome.tabs.create({url: address, active: activeAscap});
+      chrome.tabs.create({url: address, active: active});
+      active = false;
     }
 
     if (e.target.bmi.checked) {
-      let activeBmi = active;
-      active = false;
-      chrome.tabs.create({url: bmi, active: activeBmi}, function(tab1) {
+      chrome.tabs.create({url: bmi, active: active}, function(tab1) {
         chrome.tabs.executeScript(tab1.id, {code: `
           document.querySelectorAll('option[selected]')[0].removeAttribute('selected');
           document.querySelectorAll('option[value="` + search.type + `"]')[0].setAttribute('selected', '');
@@ -99,12 +90,11 @@ document.addEventListener('DOMContentLoaded', function() {
           document.querySelector('#Form1').submit();
         `, runAt: "document_end"});
       });
+      active = false;
     }
 
     if (e.target.sesac.checked) {
-      let activeSesac = active;
-      active = false;
-      chrome.tabs.create({url: sesac, active: activeSesac}, function(tab2) {
+      chrome.tabs.create({url: sesac, active: active}, function(tab2) {
         chrome.tabs.executeScript(tab2.id, {code: `
           document.querySelector('input[value="` + sesacFormLabels[search.type] + `"]').checked = "checked";
           document.querySelector('form[name="CatalogSearchForm"]').action="` + sesacFormActions[search.type] + `"
@@ -117,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+//Reversed first-last name for BMI writers
 function lastNameFirst(query, type) {
   if (type === "writer") {
     let arr = query.split(' ');
@@ -126,6 +117,7 @@ function lastNameFirst(query, type) {
   return query;
 }
 
+//Replace spaces with ""%20" for ASCAP URL parsing
 function subSpaces(string) {
   let result = "";
   for (let i = 0; i<string.length; i++) {

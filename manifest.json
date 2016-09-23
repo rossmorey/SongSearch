@@ -2,8 +2,8 @@
   "manifest_version": 2,
 
   "name": "Song Search",
-  "description": "This extension searches ASCAP, BMI, and SESAC for song composition information.",
-  "version": "1.0",
+  "description": "Search ASCAP, BMI, and SESAC for song information.",
+  "version": "0.0.1",
   "icons": { "16": "icon16.png",
            "64": "icon64.png",
           "128": "icon128.png" },
@@ -16,7 +16,6 @@
 
   "permissions": [
     "http://repertoire.bmi.com/*",
-    "https://www.sesac.com/*",
-    "tabs"
+    "https://www.sesac.com/*"
   ]
 }
