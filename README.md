@@ -24,17 +24,17 @@ When a user clicks on the extension badge, `popup.html` is displayed.
 
 The user can then:
 1. Select a search type:
-    - Title
-    - Artist
-    - Writer
-    - Publisher
-    - Catalog id
-    - ISWC
+..* Title
+..* Artist
+..* Writer
+..* Publisher
+..* Catalog id
+..* ISWC
 2. Enter a query
 3. Choose orgs: (checkboxes)
-    - ASCAP
-    - BMI
-    - SESAC
+..* ASCAP
+..* BMI
+..* SESAC
 
 Upon submit, the extension will launch a new tab for each of the selected organizations.
 
