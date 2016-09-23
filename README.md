@@ -23,18 +23,19 @@ When a user clicks on the extension badge, `popup.html` is displayed.
 ![Extension Screenshot](http://res.cloudinary.com/dhorsi7vf/image/upload/v1474654936/Screenshot_k1wraz.png "Screenshot")
 
 The user can then:
+
 1. Select a search type:
-  * Title
-  * Artist
-  * Writer
-  * Publisher
-  * Catalog id
-  * ISWC
+    * Title
+    * Artist
+    * Writer
+    * Publisher
+    * Catalog id
+    * ISWC
 2. Enter a query
 3. Choose orgs: (checkboxes)
-  * ASCAP
-  * BMI
-  * SESAC
+    * ASCAP
+    * BMI
+    * SESAC
 
 Upon submit, the extension will launch a new tab for each of the selected organizations.
 
