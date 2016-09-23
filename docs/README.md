@@ -4,14 +4,14 @@
 
 If you've worked in the music industry, you know ASCAP, BMI, and SESAC -- these are the three major performance-rights organizations.  They manage huge databases of compositions, song-writers, and publishers.  If you're doing composition research -- "Who is Adele's publisher?" or "What percentage of 'I Choose You' does Sara Bareilles own?' -- you have to look in three separate places.  Why not search all of these sites at the same time?  Enter Song Search.
 
-Inside of the Song Search Chrome extension, users can enter different combinations of title, composer, publisher, artist, and id information. Song Search launches new tabs and that target the appropriate search results on ASCAP and BMI (implementation for SESAC is bonus, see below)
+Inside of the Song Search Chrome extension, users can search by title, composer, publisher, artist, catalog id, and IWRC number. Song Search launches new tabs and that target the appropriate search results on ASCAP and BMI (implementation for SESAC is bonus, see below)
 
 ### Functionality & MVP
 
 In this Chrome Extension search tool, users will be able to:
 
 - [ ] Open the Chrome Extension popup.
-- [ ] Fill in search params for any/all of the following: performer, writer, publisher, title, id
+- [ ] Fill in search params for the following: performer, writer, publisher, title, id
 - [ ] Submit their search, launching new Chrome tabs -- one for BMI and one for ASCAP.
 
 In addition, the extension will:
@@ -51,7 +51,7 @@ The primary technical challenges will be:
   - extension icon
 
 **Day 2**: Render the popup form including submit button.  Click triggers `console.log()` from `popup.js`
-  - Form includes artist,, writer, publisher, title, and ID information
+  - Form includes artist, writer, publisher, title, and ID information
   - Form includes submit button.
   - On click, form submit renders message in console.
 

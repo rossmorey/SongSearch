@@ -117,7 +117,7 @@ function lastNameFirst(query, type) {
   return query;
 }
 
-//Replace spaces with ""%20" for ASCAP URL parsing
+//Replace spaces with "%20" for ASCAP URL parsing
 function subSpaces(string) {
   let result = "";
   for (let i = 0; i<string.length; i++) {
