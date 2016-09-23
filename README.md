@@ -4,11 +4,13 @@
 
 [cws]: https://chrome.google.com/webstore/detail/song-search/hfdidojhnkdibahcndapblampeicghfd
 
-![alt text](http://res.cloudinary.com/dhorsi7vf/image/upload/v1473986161/full_ue18il.png "Marquee")
+![alt text](http://res.cloudinary.com/dhorsi7vf/image/upload/v1474653016/Marquee_hdc36l.png "Marquee")
 
-If you've worked in the music industry, you know ASCAP, BMI, and SESAC -- these are the three major performance-rights organizations.  They manage huge databases of compositions, song-writers, and publishers.  If you're doing composition research -- "Who is Billy Joel's publisher?" or "What percentage of 'I Choose You' does Sara Bareilles own?' -- you have to look in three separate places.  Why not search all of these sites at the same time?  Enter Song Search.
+If you've worked in the music industry, you know ASCAP, BMI, and SESAC -- these are the three major performance-rights organizations.  They manage huge databases of compositions, songwriters, and publishers.  If you're doing composition research -- "Who is Billy Joel's publisher?" or "What percentage of 'I Choose You' does Sara Bareilles own?' -- you have to look in three separate places.  Why not search all of these sites at the same time?
 
-Inside of the Song Search Chrome extension, users can search by title, composer, publisher, artist, catalog number, or ISWC number. Song Search launches new tabs and that target the appropriate search results on ASCAP, BMI, and SESAC's websites.
+Enter Song Search.
+
+Inside of the Song Search Chrome extension, users can search by title, composer, publisher, artist, catalog number, or ISWC number. Song Search launches new tabs and that target the appropriate search results on ASCAP, BMI, and/or SESAC's websites.
 
 Song Search is built using vanilla JavaScript, HTML, and CSS.
 
@@ -21,15 +23,15 @@ When a user clicks on the extension badge, `popup.html` is displayed.
 ![Extension Screenshot](http://res.cloudinary.com/dhorsi7vf/image/upload/v1474654936/Screenshot_k1wraz.png "Screenshot")
 
 The user can then:
-- (A) Select a search type:
+1. Select a search type:
     - Title
     - Artist
     - Writer
     - Publisher
     - Catalog id
     - ISWC
-- (B) Enter a query
-- (C) Choose orgs: (checkboxes)
+2. Enter a query
+3. Choose orgs: (checkboxes)
     - ASCAP
     - BMI
     - SESAC
@@ -41,7 +43,7 @@ In order for the extension search form to handle incorrect user input and displa
 Searching for composition information by ISWC (International Standard Musical Work Code) is a great tool if you already have this number handy.  Unfortunately SESAC doesn't support search using this type of query.  In order to account for this difference between the rights-orgs, Song Search listens for change of the `<select>` dropdown.  If ISWC is selected, `popup.js` adds the attribute `disabled` to the SESAC checkbox, so that a tab can't be created for this type of search.
 
 ``` javascript
-/// './popup.js'
+// './popup.js'
 
 if (iswcOption.selected) {
   sesacBox.checked = false;
@@ -55,7 +57,7 @@ if (iswcOption.selected) {
 
 ![Error Handling](http://res.cloudinary.com/dhorsi7vf/image/upload/v1474656056/Errors_q8bcgv.png "Error Handling")
 
-`popup.js` will return early (i.e. new tabs won't lauch) if an error is detected. It also removes the error message from the extension search form when a user modifies their input.
+`popup.js` will return early (i.e. new tabs won't launch) if an error is detected. It also removes the error message from the extension search form when a user modifies their input.
 
 ```javascript
 // './popup.js'
