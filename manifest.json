@@ -15,6 +15,7 @@
   },
 
   "permissions": [
+    "tabs",
     "http://repertoire.bmi.com/*",
     "https://www.sesac.com/*"
   ],
